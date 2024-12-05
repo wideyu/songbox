@@ -117,7 +117,7 @@
       "domain_strategy": "prefer_ipv4"
     },
     {
-      "type": "wireguard",
+      "type": "socks",
       "tag": "warp",
       "server": "engage.cloudflareclient.com",
       "server_port": 2408,
