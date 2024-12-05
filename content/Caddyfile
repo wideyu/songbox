@@ -1,3 +1,7 @@
+{
+	debug
+}
+
 :{$PORT} {
 	handle {$SecretPATH}/vm* {
 		@websocket {
