@@ -7,10 +7,10 @@
 		header Connection *Upgrade*
 		header Upgrade websocket
 	}
-	handle @websocket {
+	reverse_proxy @websocket {
 		reverse_proxy @websocket {
+			header_up Host localhost
 			to localhost:61801
-			trusted_proxies private_ranges
 		}
 	}
 	handle {$SecretPATH}/wgvm* {
@@ -60,13 +60,9 @@
 		}
 		respond * 401
 	}
-	handle {$SecretPATH}/api* {
-		@http-req {
-			header X-Forwarded-Proto http
-		}
-		redir @http-req https://{host}{uri}
-		uri strip_prefix {$SecretPATH}/api
-		reverse_proxy * localhost:61804
+	reverse_proxy {$SecretPATH}/api* {
+		header_up Host localhost
+		to localhost:61804
 	}
 	handle {$SecretPATH}/admin* {
 		@http-req {
