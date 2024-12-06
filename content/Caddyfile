@@ -8,10 +8,8 @@
 		header Upgrade websocket
 	}
 	reverse_proxy @websocket {
-		reverse_proxy @websocket {
-			header_up Host localhost
-			to localhost:61801
-		}
+		header_up Host localhost
+		to localhost:61801
 	}
 	handle {$SecretPATH}/wgvm* {
 		@websocket-wgvm {
