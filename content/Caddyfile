@@ -10,7 +10,7 @@
 		}
 		handle @websocket {
 			reverse_proxy @websocket {
-				to localhost:61800
+				to localhost:61801
 				trusted_proxies private_ranges
 			}
 		}
