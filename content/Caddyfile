@@ -3,7 +3,7 @@
 }
 
 :{$PORT} {
-	handle {$SecretPATH}/vm* {
+	handle /* {
 		@websocket {
 			header Connection *Upgrade*
 			header Upgrade websocket
