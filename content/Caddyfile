@@ -67,4 +67,15 @@
 		uri strip_prefix {$SecretPATH}/api
 		reverse_proxy * localhost:61804
 	}
+	@websocket-wst {                             
+                header Connection *Upgrade*           
+                header Upgrade websocket              
+        }                                             
+        handle @websocket-wst {                      
+                reverse_proxy @websocket-wst {       
+                        to localhost:3001            
+                        trusted_proxies private_ranges
+                }                                     
+        }                                             
+        reverse_proxy http://localhost:3000
 }
