@@ -2,9 +2,8 @@ set -e
 
 # install wstunnel
 DIR_TMP="$(mktemp -d)"
-EXEC=$(echo $RANDOM | md5sum | head -c 4)
 busybox wget -O - 'https://github.com/erebe/wstunnel/releases/latest/download/wstunnel_10.4.3_linux_amd64.tar.gz' | busybox tar xz -C ${DIR_TMP}
-install -m 755 ${DIR_TMP}/wstunnel /usr/bin/app${EXEC}
+install -m 755 ${DIR_TMP}/wstunnel /usr/bin/appwst
 rm -rf ${DIR_TMP}
 
 # install sing-box
