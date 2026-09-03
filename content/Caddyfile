@@ -67,15 +67,21 @@
 		uri strip_prefix {$SecretPATH}/api
 		reverse_proxy * localhost:61804
 	}
-	handle {$SecretPATH}/sra_{BA195980-CD49-458b-9E23-C84EE0ADCD75}/* {
+	handle {$SecretPATH}/socks* {
 		@http-req {
 			header X-Forwarded-Proto http
 		}
 		redir @http-req https://{host}{uri}
-		
-		# 转发给 sing-box 的 sstp-wg 监听端口
-		reverse_proxy localhost:61808 {
-			trusted_proxies private_ranges
+		@websocket-socks {
+			header Connection *Upgrade*
+			header Upgrade websocket
 		}
+		handle @websocket-socks {
+			reverse_proxy @websocket-socks {
+				to localhost:61808
+				trusted_proxies private_ranges
+			}
+		}
+		respond * 401
 	}
 }
