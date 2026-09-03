@@ -105,7 +105,7 @@
       "type": "socks",
       "tag": "socks-wg",
       "listen": "::",
-      "listen_port": 61808,
+      "listen_port": 61808
     }
   ],
   "outbounds": [
