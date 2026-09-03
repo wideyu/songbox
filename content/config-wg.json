@@ -19,7 +19,7 @@
         "inbound": [
           "vmess-wg",
           "trojan-wg",
-          "sttp-wg"
+          "sstp-wg"
         ],
         "server": "warp-dns"
       },
@@ -102,8 +102,8 @@
       "domain_strategy": "prefer_ipv6"
     },
     {
-      "type": "sttp",
-      "tag": "sttp-wg",
+      "type": "sstp",
+      "tag": "sstp-wg",
       "listen": "::",
       "listen_port": 61808,
       "users": [
@@ -174,7 +174,7 @@
         "clash_mode": "rule"
       },
       {
-        "inbound": ["vmess-wg", "trojan-wg","sttp-wg"],
+        "inbound": ["vmess-wg", "trojan-wg","sstp-wg"],
         "outbound": "warp",
         "clash_mode": "rule"
       },
