@@ -67,12 +67,7 @@
 		uri strip_prefix {$SecretPATH}/api
 		reverse_proxy * localhost:61804
 	}
-	handle {$SecretPATH}/http* {
-		@http-req {
-			header X-Forwarded-Proto http
-		}
-		redir @http-req https://{host}{uri}
-		uri strip_prefix {$SecretPATH}/api
-		reverse_proxy * localhost:61808
+	handle {
+		reverse_proxy localhost:61808
 	}
 }
