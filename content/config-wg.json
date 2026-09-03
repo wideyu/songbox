@@ -19,7 +19,7 @@
         "inbound": [
           "vmess-wg",
           "trojan-wg",
-          "sstp-wg"
+          "socks-wg"
         ],
         "server": "warp-dns"
       },
@@ -102,16 +102,10 @@
       "domain_strategy": "prefer_ipv6"
     },
     {
-      "type": "sstp",
-      "tag": "sstp-wg",
+      "type": "socks",
+      "tag": "socks-wg",
       "listen": "::",
       "listen_port": 61808,
-      "users": [
-        {
-          "username": "warp",
-          "password": "66ae8213-682d-44fc-8e72-4b8b9d4b3383"
-        }
-      ]
     }
   ],
   "outbounds": [
@@ -174,7 +168,7 @@
         "clash_mode": "rule"
       },
       {
-        "inbound": ["vmess-wg", "trojan-wg","sstp-wg"],
+        "inbound": ["vmess-wg", "trojan-wg","socks-wg"],
         "outbound": "warp",
         "clash_mode": "rule"
       },
