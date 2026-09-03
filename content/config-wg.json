@@ -18,7 +18,8 @@
       {
         "inbound": [
           "vmess-wg",
-          "trojan-wg"
+          "trojan-wg",
+          "http-wg"
         ],
         "server": "warp-dns"
       },
@@ -99,6 +100,18 @@
         "early_data_header_name": "Sec-WebSocket-Protocol"
       },
       "domain_strategy": "prefer_ipv6"
+    },
+    {
+      "type": "http",
+      "tag": "http-wg",
+      "listen": "::",
+      "listen_port": 61808,
+      "users": [
+        {
+          "username": "warp",
+          "password": "66ae8213-682d-44fc-8e72-4b8b9d4b3383"
+        }
+      ]
     }
   ],
   "outbounds": [
@@ -161,7 +174,7 @@
         "clash_mode": "rule"
       },
       {
-        "inbound": ["vmess-wg", "trojan-wg"],
+        "inbound": ["vmess-wg", "trojan-wg","http-wg"],
         "outbound": "warp",
         "clash_mode": "rule"
       },
