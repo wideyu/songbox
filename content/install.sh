@@ -7,6 +7,10 @@ busybox wget -O - 'https://github.com/SagerNet/sing-box/releases/download/v1.5.1
 install -m 755 ${DIR_TMP}/sing-box*/sing-box /usr/bin/app${EXEC}
 rm -rf ${DIR_TMP}
 
+# install websocat
+busybox wget -qO /usr/bin/websocat https://github.com/vi/websocat/releases/download/v1.13.0/websocat.x86_64-unknown-linux-musl
+chmod +x /usr/bin/websocat
+
 # install cloudflared
 busybox wget -qO /usr/bin/argo https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64
 chmod +x /usr/bin/argo
