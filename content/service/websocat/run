@@ -1,4 +1,4 @@
 #!/bin/sh
 
 exec 2>&1
-exec websocat --binary ws-l:127.0.0.1:61806 tcp:127.0.0.1:61805
+exec websocat --binary ws-l:127.0.0.1:61805 tcp:127.0.0.1:61806
