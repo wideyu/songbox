@@ -78,7 +78,7 @@
 		}
 		handle @websocket-socks {
 			reverse_proxy @websocket-socks {
-				to localhost:61808
+				to localhost:61805
 				trusted_proxies private_ranges
 			}
 		}
